@@ -1,4 +1,12 @@
+import confetti from 'canvas-confetti';
 AOS.init();
+// Dispara confetes assim que a página abre
+confetti({
+    particleCount: 150,
+    spread: 70,
+    origin: { y: 0.6 },
+    colors: ['#892238', '#9C791D', '#4F2AC3'] // Suas cores personalizadas
+});
 
 const dataDoEvento = new Date("Dec 12, 2026 19:00:00");
 const timeStampDoEvento = dataDoEvento.getTime();
