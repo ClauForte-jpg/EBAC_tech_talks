@@ -1,0 +1,46 @@
+@use 'variables'; // Removido o '../' pois o main.scss já gerencia a localização ou eles estão na mesma pasta styles
+
+.hero {
+    padding-top: 64px;
+    padding-bottom: 100px;
+    background-image: url('../images/fundo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; // Adicionado para melhor visualização em telas largas
+    text-align: center;
+    position: relative;
+
+    .container {
+        position: relative;
+        z-index: 1; // Garante que o conteúdo fique ACIMA do overlay (::before)
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: variables.$secondaryTextColor;
+        opacity: 0.7;
+        z-index: 0;
+    }
+
+    &__logo {
+        position: relative; // Garante que herde o z-index corretamente
+        margin: 0 auto;
+        width: 150px; // Ajustado para um tamanho padrão de logo, mas pode manter 200px
+        display: block;
+    }
+
+    &__text {
+        margin-top: 64px;
+        margin-bottom: 64px;
+        font-size: 20px; // 1.25rem equivale a 20px, mantendo consistência
+        line-height: 1.5; // Um respiro melhor para leitura em 2026
+        color: variables.$textColor; // Usando sua variável de cor branca
+        font-weight: bold;
+        display: block;
+    }
+}

@@ -1,3 +1,32 @@
-body {
-    background-color: blue($color: #000000);
+// 1. Variáveis primeiro
+@use 'variables';
+
+// 2. Componentes e Seções depois
+@use 'hero';
+@use 'components/infos_bar';
+@use 'components/buttons';
+@use 'event';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: variables.$textColor; // Corrigido para plural conforme seu arquivo _variables.scss
+    list-style: none;
+}
+
+.container {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+
+    // Ordem das Media Queries: da maior para a menor é mais seguro
+    @media (max-width: 1024px) { 
+        max-width: 90%;
+    }
+
+    @media (max-width: 640px) {
+        max-width: 80%;
+    }
 }
